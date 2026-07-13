@@ -1,0 +1,23 @@
+/* Base styles to ensure CSS loads in packaged builds */
+html, body, #root {
+  height: 100%;
+}
+body {
+  background-color: #fdfbf7;
+  color: #1f2937; /* fallback text color */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Minimal tokens used across the app (fallbacks) */
+.bg-paper {
+  background-color: #faf7f2;
+}
+.text-ink-black { color: #222; }
+.bg-ink-red { background-color: #ef4444; }
+
+/* Prevent horizontal overflow by default */
+.no-x-scroll {
+  overflow-x: hidden;
+}
+
