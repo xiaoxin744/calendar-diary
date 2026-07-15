@@ -10,7 +10,7 @@
 
 **毎日の生活を記録するシンプルでエレガントなカレンダー日記アプリ**
 
-[![Version](https://img.shields.io/badge/version-0.2.0--beta-blue.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
+[![Version](https://img.shields.io/badge/version-0.3.0--beta-blue.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 [![License](https://img.shields.io/badge/license-CC--BY--NC--4.0-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 
@@ -60,7 +60,7 @@ CalendarDiary は、モダンなデザイン哲学を採用したクロスプラ
 
 ## 📥 インストール
 
-### 最新バージョン：v0.2.0-beta
+### 最新バージョン：v0.3.0-beta
 
 [Releases](https://github.com/xiaoxin744/calendar-diary/releases) ページから、お使いのシステムに適したインストーラーをダウンロードしてください：
 
@@ -75,12 +75,12 @@ CalendarDiary は、モダンなデザイン哲学を採用したクロスプラ
 ### インストール手順
 
 #### Windows
-1. `CalendarDiary-Setup-0.2.0-beta.exe` をダウンロード
+1. `CalendarDiary-Setup-0.3.0-beta.exe` をダウンロード
 2. ダブルクリックしてインストーラーを実行
 3. ウィザードに従ってインストールを完了
 
 #### macOS
-1. `CalendarDiary-0.2.0-beta-arm64.dmg` をダウンロード
+1. `CalendarDiary-0.3.0-beta-arm64.dmg` をダウンロード
 2. DMG ファイルを開く
 3. アプリを Applications フォルダにドラッグ
 4. 初回起動時は「システム設定 > プライバシーとセキュリティ」で許可が必要な場合があります
@@ -88,11 +88,11 @@ CalendarDiary は、モダンなデザイン哲学を採用したクロスプラ
 #### Linux
 ```bash
 # AppImage
-chmod +x CalendarDiary-0.2.0-beta-arm64.AppImage
-./CalendarDiary-0.2.0-beta-arm64.AppImage
+chmod +x CalendarDiary-0.3.0-beta-arm64.AppImage
+./CalendarDiary-0.3.0-beta-arm64.AppImage
 
 # Debian/Ubuntu
-sudo dpkg -i calendar-diary_0.2.0-beta_amd64.deb
+sudo dpkg -i calendar-diary_0.3.0-beta_amd64.deb
 ```
 
 ## 📖 使い方

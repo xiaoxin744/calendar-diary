@@ -10,7 +10,7 @@
 
 **일상을 기록하는 심플하고 우아한 캘린더 다이어리 앱**
 
-[![Version](https://img.shields.io/badge/version-0.2.0--beta-blue.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
+[![Version](https://img.shields.io/badge/version-0.3.0--beta-blue.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 [![License](https://img.shields.io/badge/license-CC--BY--NC--4.0-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 
@@ -60,7 +60,7 @@ CalendarDiary는 모던한 디자인 철학을 채택한 크로스 플랫폼 데
 
 ## 📥 설치
 
-### 최신 버전: v0.2.0-beta
+### 최신 버전: v0.3.0-beta
 
 [Releases](https://github.com/xiaoxin744/calendar-diary/releases) 페이지에서 시스템에 맞는 설치 파일을 다운로드하세요:
 
@@ -75,12 +75,12 @@ CalendarDiary는 모던한 디자인 철학을 채택한 크로스 플랫폼 데
 ### 설치 방법
 
 #### Windows
-1. `CalendarDiary-Setup-0.2.0-beta.exe` 다운로드
+1. `CalendarDiary-Setup-0.3.0-beta.exe` 다운로드
 2. 더블 클릭하여 설치 프로그램 실행
 3. 마법사를 따라 설치 완료
 
 #### macOS
-1. `CalendarDiary-0.2.0-beta-arm64.dmg` 다운로드
+1. `CalendarDiary-0.3.0-beta-arm64.dmg` 다운로드
 2. DMG 파일 열기
 3. 앱을 Applications 폴더로 드래그
 4. 첫 실행 시 "시스템 설정 > 개인 정보 보호 및 보안"에서 허용이 필요할 수 있음
@@ -88,11 +88,11 @@ CalendarDiary는 모던한 디자인 철학을 채택한 크로스 플랫폼 데
 #### Linux
 ```bash
 # AppImage
-chmod +x CalendarDiary-0.2.0-beta-arm64.AppImage
-./CalendarDiary-0.2.0-beta-arm64.AppImage
+chmod +x CalendarDiary-0.3.0-beta-arm64.AppImage
+./CalendarDiary-0.3.0-beta-arm64.AppImage
 
 # Debian/Ubuntu
-sudo dpkg -i calendar-diary_0.2.0-beta_amd64.deb
+sudo dpkg -i calendar-diary_0.3.0-beta_amd64.deb
 ```
 
 ## 📖 사용법

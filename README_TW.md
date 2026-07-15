@@ -10,7 +10,7 @@
 
 **一款簡潔優雅的日曆日記應用，幫助你記錄每天的點滴生活**
 
-[![Version](https://img.shields.io/badge/version-0.2.0--beta-blue.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
+[![Version](https://img.shields.io/badge/version-0.3.0--beta-blue.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 [![License](https://img.shields.io/badge/license-CC--BY--NC--4.0-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 
@@ -60,7 +60,7 @@ CalendarDiary 是一款跨平台的桌面日曆日記應用，採用現代化設
 
 ## 📥 下載安裝
 
-### 最新版本：v0.2.0-beta
+### 最新版本：v0.3.0-beta
 
 前往 [Releases](https://github.com/xiaoxin744/calendar-diary/releases) 頁面下載適合你系統的安裝包：
 
@@ -75,12 +75,12 @@ CalendarDiary 是一款跨平台的桌面日曆日記應用，採用現代化設
 ### 安裝說明
 
 #### Windows
-1. 下載 `CalendarDiary-Setup-0.2.0-beta.exe`
+1. 下載 `CalendarDiary-Setup-0.3.0-beta.exe`
 2. 雙擊執行安裝程式
 3. 按照嚮導完成安裝
 
 #### macOS
-1. 下載 `CalendarDiary-0.2.0-beta-arm64.dmg`
+1. 下載 `CalendarDiary-0.3.0-beta-arm64.dmg`
 2. 打開 DMG 檔案
 3. 將應用拖入 Applications 資料夾
 4. 首次執行可能需要在「系統設定 > 隱私與安全性」中允許
@@ -88,11 +88,11 @@ CalendarDiary 是一款跨平台的桌面日曆日記應用，採用現代化設
 #### Linux
 ```bash
 # AppImage 方式
-chmod +x CalendarDiary-0.2.0-beta-arm64.AppImage
-./CalendarDiary-0.2.0-beta-arm64.AppImage
+chmod +x CalendarDiary-0.3.0-beta-arm64.AppImage
+./CalendarDiary-0.3.0-beta-arm64.AppImage
 
 # Debian/Ubuntu 方式
-sudo dpkg -i calendar-diary_0.2.0-beta_amd64.deb
+sudo dpkg -i calendar-diary_0.3.0-beta_amd64.deb
 ```
 
 ## 📖 使用方法

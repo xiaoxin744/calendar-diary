@@ -10,7 +10,7 @@
 
 **A simple and elegant calendar diary app to record your daily life**
 
-[![Version](https://img.shields.io/badge/version-0.2.0--beta-blue.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
+[![Version](https://img.shields.io/badge/version-0.3.0--beta-blue.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 [![License](https://img.shields.io/badge/license-CC--BY--NC--4.0-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 
@@ -60,7 +60,7 @@ CalendarDiary is a cross-platform desktop calendar diary application with a mode
 
 ## 📥 Installation
 
-### Latest Version: v0.2.0-beta
+### Latest Version: v0.3.0-beta
 
 Go to [Releases](https://github.com/xiaoxin744/calendar-diary/releases) page to download the installer for your system:
 
@@ -75,12 +75,12 @@ Go to [Releases](https://github.com/xiaoxin744/calendar-diary/releases) page to 
 ### Installation Instructions
 
 #### Windows
-1. Download `CalendarDiary-Setup-0.2.0-beta.exe`
+1. Download `CalendarDiary-Setup-0.3.0-beta.exe`
 2. Double-click to run the installer
 3. Follow the wizard to complete installation
 
 #### macOS
-1. Download `CalendarDiary-0.2.0-beta-arm64.dmg`
+1. Download `CalendarDiary-0.3.0-beta-arm64.dmg`
 2. Open the DMG file
 3. Drag the app to Applications folder
 4. First launch may require permission in "System Settings > Privacy & Security"
@@ -88,11 +88,11 @@ Go to [Releases](https://github.com/xiaoxin744/calendar-diary/releases) page to 
 #### Linux
 ```bash
 # AppImage
-chmod +x CalendarDiary-0.2.0-beta-arm64.AppImage
-./CalendarDiary-0.2.0-beta-arm64.AppImage
+chmod +x CalendarDiary-0.3.0-beta-arm64.AppImage
+./CalendarDiary-0.3.0-beta-arm64.AppImage
 
 # Debian/Ubuntu
-sudo dpkg -i calendar-diary_0.2.0-beta_amd64.deb
+sudo dpkg -i calendar-diary_0.3.0-beta_amd64.deb
 ```
 
 ## 📖 Usage

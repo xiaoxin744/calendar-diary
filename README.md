@@ -10,7 +10,7 @@
 
 **一款简洁优雅的日历日记应用，帮助你记录每天的点滴生活**
 
-[![Version](https://img.shields.io/badge/version-0.2.0--beta-blue.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
+[![Version](https://img.shields.io/badge/version-0.3.0--beta-blue.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 [![License](https://img.shields.io/badge/license-CC--BY--NC--4.0-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux%20%7C%20Android%20%7C%20iOS%20%7C%20Web-lightgrey.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 
@@ -77,52 +77,45 @@ npm install
 npm run start
 ```
 
-当前已支持月历、日记编辑、心情、月度计划、全文搜索、备份恢复和设备生物识别保护。详细说明见 [`mobile/README.md`](mobile/README.md)。
+当前已支持月历、日记编辑、心情、月度计划、全文搜索、备份恢复、设备生物识别保护，以及与电脑端兼容的 WebDAV 自动同步、备份和三方冲突合并。详细说明见 [`mobile/README.md`](mobile/README.md)。
+
+> 手机端和电脑端均可完全离线使用；本地自动备份不需要服务器。WebDAV 只面向已有相关服务并希望跨设备同步的用户。
 
 <p align="center">
-  <img src="docs/images/mobile-calendar.png" alt="移动端月历" width="280">
+  <img src="docs/images/mobile-calendar.png" alt="移动端月历" width="230">
   &nbsp;&nbsp;
-  <img src="docs/images/mobile-editor.png" alt="移动端日记编辑" width="280">
+  <img src="docs/images/mobile-editor.png" alt="移动端日记编辑" width="230">
+  &nbsp;&nbsp;
+  <img src="docs/images/mobile-sync.png" alt="移动端 WebDAV 同步" width="230">
 </p>
 
 ---
 
-## 📥 桌面端下载安装
+## 📥 下载安装
 
-### 最新版本：v0.2.0-beta
+### 最新版本：v0.3.0-beta
 
 前往 [Releases](https://github.com/xiaoxin744/calendar-diary/releases) 页面下载适合你系统的安装包：
 
 | 平台 | 文件类型 | 说明 |
 |------|----------|------|
+| 🤖 **Android 8.0+** | `.apk` | 直接安装，默认纯本地使用，无需账号或服务器 |
 | 🪟 **Windows** | `.exe` (NSIS 安装器) | 支持自定义安装路径 |
 | 🪟 **Windows** | `.exe` (便携版) | 无需安装，解压即用 |
-| 🍎 **macOS** | `.dmg` | 适用于 Apple Silicon (M1/M2/M3) |
-| 🐧 **Linux** | `.AppImage` | 通用 Linux 应用格式 |
-| 🐧 **Linux** | `.deb` | Debian/Ubuntu 系统 |
+
+> 本次预发布提供 Android 与 Windows 安装包。macOS、Linux 和 iOS 源码已保留，可在相应系统或 CI 环境中构建。
 
 ### 安装说明
 
+#### Android
+1. 下载 `CalendarDiary-Mobile-0.2.0-android.apk`
+2. 在手机文件管理器中打开 APK；首次安装时按系统提示允许该来源安装应用
+3. 安装后可直接离线使用；只有主动配置 WebDAV 时才会联网同步
+
 #### Windows
-1. 下载 `CalendarDiary-Setup-0.2.0-beta.exe`
+1. 下载 `CalendarDiary-Setup-0.3.0-beta.exe`
 2. 双击运行安装程序
 3. 按照向导完成安装
-
-#### macOS
-1. 下载 `CalendarDiary-0.2.0-beta-arm64.dmg`
-2. 打开 DMG 文件
-3. 将应用拖入 Applications 文件夹
-4. 首次运行可能需要在"系统设置 > 隐私与安全性"中允许
-
-#### Linux
-```bash
-# AppImage 方式
-chmod +x CalendarDiary-0.2.0-beta-arm64.AppImage
-./CalendarDiary-0.2.0-beta-arm64.AppImage
-
-# Debian/Ubuntu 方式
-sudo dpkg -i calendar-diary_0.2.0-beta_amd64.deb
-```
 
 ## 📖 使用方法
 

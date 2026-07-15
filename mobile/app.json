@@ -4,17 +4,22 @@
     "description": "本地优先、简洁安全的跨平台日历日记。",
     "slug": "calendar-diary-mobile",
     "scheme": "calendardiary",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "backgroundColor": "#F7F6F2",
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.xiaoxin744.calendardiary"
+      "bundleIdentifier": "com.xiaoxin744.calendardiary",
+      "buildNumber": "2",
+      "config": {
+        "usesNonExemptEncryption": false
+      }
     },
     "android": {
       "package": "com.xiaoxin744.calendardiary",
+      "versionCode": 2,
       "blockedPermissions": [
         "android.permission.READ_EXTERNAL_STORAGE",
         "android.permission.WRITE_EXTERNAL_STORAGE"
@@ -60,7 +65,8 @@
           "resizeMode": "contain",
           "backgroundColor": "#F7F6F2"
         }
-      ]
+      ],
+      "expo-background-task"
     ],
     "experiments": {
       "typedRoutes": true

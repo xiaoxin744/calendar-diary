@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { diaryRepository } from '@/data/diaryRepository';
+import { localBackupRepository } from '@/data/syncRepository';
 import type { DayEvent, DiarySnapshot } from '@/domain/types';
 import { EMPTY_SNAPSHOT } from '@/domain/types';
 
@@ -69,6 +70,7 @@ export const useDiaryStore = create<DiaryStore>((set, get) => {
     },
 
     saveDay: (dateKey, events, stickers) => {
+      void localBackupRepository.createIfDue(snapshotFromStore(get())).catch(() => undefined);
       const cleanEvents = events
         .filter((event) => event.rawText.trim().length > 0)
         .map((event) => ({
@@ -87,6 +89,7 @@ export const useDiaryStore = create<DiaryStore>((set, get) => {
     },
 
     updatePlan: (monthKey, index, value) => {
+      void localBackupRepository.createIfDue(snapshotFromStore(get())).catch(() => undefined);
       const plans = [...(get().monthlyPlans[monthKey] ?? ['', '', ''])];
       while (plans.length < 3) plans.push('');
       plans[index] = value;

@@ -10,6 +10,9 @@ CalendarDiary 的 Android、iOS 与 Web 客户端，基于 Expo SDK 57、React N
 - 全文本地搜索
 - AsyncStorage 版本化持久化与 Zod 数据校验
 - 与桌面端兼容的 JSON 备份导入/导出
+- 与桌面端共用协议的 WebDAV 跨设备同步
+- 三方逐项冲突合并，同项冲突保留本机和云端两个版本
+- 同步前云端备份、最近三份本地快照和自动同步
 - iOS/Android 生物识别与设备密码保护
 - Android、iOS、Web 统一代码库
 
@@ -38,6 +41,12 @@ npx eas-cli build --profile production --platform all
 ```
 
 iOS 正式发布需要 Apple Developer 账号；Android 正式发布需要 Google Play Console 账号。密钥由 EAS 或组织密钥管理服务托管，不提交到 Git。
+
+## WebDAV 数据边界
+
+应用的全部本地功能和最近三份自动安全快照都不需要服务器。WebDAV 是可选高级功能，适合已经拥有坚果云、Nextcloud、群晖等服务的用户。
+
+在「设置 → 可选：WebDAV 跨设备同步」中填写与电脑端相同的服务器地址、目录和账号。默认目录为 `/CalendarDiary`，当前数据保存在 `data/current.json`，自动备份保存在 `backups/`。原生端密码写入系统安全凭据库；Web 端受浏览器跨域策略限制，需要 WebDAV 服务允许 CORS。
 
 应用不接入广告或行为统计，数据边界和系统权限说明见仓库根目录的 [`PRIVACY.md`](../PRIVACY.md)。
 

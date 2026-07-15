@@ -1,7 +1,7 @@
 {
   "name": "calendar-diary",
   "private": true,
-  "version": "0.2.0-beta",
+  "version": "0.3.0-beta",
   "description": "一款简洁优雅的日历日记应用",
   "author": {
     "name": "TrustDev",
@@ -54,7 +54,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.0.0",
     "concurrently": "^8.2.2",
-    "electron": "^39.2.3",
+    "electron": "39.2.3",
     "electron-builder": "^26.15.3",
     "png2icons": "^2.0.1",
     "tailwindcss": "^4.3.2",

@@ -14,6 +14,7 @@ export default function PlansScreen() {
   const monthKey = toMonthKey(month);
   const plans = useDiaryStore((state) => state.monthlyPlans[monthKey] ?? ['', '', '']);
   const updatePlan = useDiaryStore((state) => state.updatePlan);
+  const visiblePlanCount = Math.max(3, Math.min(16, plans.length));
 
   return (
     <Screen>
@@ -27,12 +28,12 @@ export default function PlansScreen() {
       <KeyboardAvoidingView style={styles.flex} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         <View style={styles.intro}>
           <Target size={20} color={colors.blue} />
-          <Text style={styles.introText}>建议只保留三个真正重要的目标。</Text>
+          <Text style={styles.introText}>{visiblePlanCount > 3 ? '同步冲突版本已追加保留，请确认后整理。' : '建议只保留三个真正重要的目标。'}</Text>
         </View>
         <View style={styles.planList}>
-          {[0, 1, 2].map((index) => (
+          {Array.from({ length: visiblePlanCount }, (_, index) => index).map((index) => (
             <View key={index} style={styles.planRow}>
-              <View style={[styles.number, index === 0 ? styles.numberGreen : index === 1 ? styles.numberBlue : styles.numberRed]}>
+              <View style={[styles.number, index % 3 === 0 ? styles.numberGreen : index % 3 === 1 ? styles.numberBlue : styles.numberRed]}>
                 <Text style={styles.numberText}>{index + 1}</Text>
               </View>
               <TextInput

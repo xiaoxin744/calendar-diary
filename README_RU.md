@@ -10,7 +10,7 @@
 
 **Простое и элегантное приложение-календарь для записи повседневной жизни**
 
-[![Version](https://img.shields.io/badge/version-0.2.0--beta-blue.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
+[![Version](https://img.shields.io/badge/version-0.3.0--beta-blue.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 [![License](https://img.shields.io/badge/license-CC--BY--NC--4.0-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 
@@ -60,7 +60,7 @@ CalendarDiary — кроссплатформенное настольное пр
 
 ## 📥 Установка
 
-### Последняя версия: v0.2.0-beta
+### Последняя версия: v0.3.0-beta
 
 Перейдите на страницу [Releases](https://github.com/xiaoxin744/calendar-diary/releases), чтобы скачать установщик для вашей системы:
 
@@ -75,12 +75,12 @@ CalendarDiary — кроссплатформенное настольное пр
 ### Инструкции по установке
 
 #### Windows
-1. Скачайте `CalendarDiary-Setup-0.2.0-beta.exe`
+1. Скачайте `CalendarDiary-Setup-0.3.0-beta.exe`
 2. Дважды щёлкните для запуска установщика
 3. Следуйте мастеру установки
 
 #### macOS
-1. Скачайте `CalendarDiary-0.2.0-beta-arm64.dmg`
+1. Скачайте `CalendarDiary-0.3.0-beta-arm64.dmg`
 2. Откройте DMG-файл
 3. Перетащите приложение в папку Applications
 4. При первом запуске может потребоваться разрешение в «Системные настройки > Конфиденциальность и безопасность»
@@ -88,11 +88,11 @@ CalendarDiary — кроссплатформенное настольное пр
 #### Linux
 ```bash
 # AppImage
-chmod +x CalendarDiary-0.2.0-beta-arm64.AppImage
-./CalendarDiary-0.2.0-beta-arm64.AppImage
+chmod +x CalendarDiary-0.3.0-beta-arm64.AppImage
+./CalendarDiary-0.3.0-beta-arm64.AppImage
 
 # Debian/Ubuntu
-sudo dpkg -i calendar-diary_0.2.0-beta_amd64.deb
+sudo dpkg -i calendar-diary_0.3.0-beta_amd64.deb
 ```
 
 ## 📖 Использование

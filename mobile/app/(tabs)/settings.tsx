@@ -1,11 +1,15 @@
 import { useMemo, useState } from 'react';
 import { Alert, Image, Linking, Platform, Pressable, ScrollView, StyleSheet, Switch, Text, View } from 'react-native';
-import { DatabaseBackup, Download, ExternalLink, Fingerprint, Info, ShieldCheck, Trash2, Upload } from 'lucide-react-native';
+import { Cloud, DatabaseBackup, Download, ExternalLink, Fingerprint, Info, ShieldCheck, Trash2, Upload } from 'lucide-react-native';
+import { useRouter } from 'expo-router';
+import Constants from 'expo-constants';
 import { PageHeader } from '@/components/PageHeader';
 import { Screen } from '@/components/Screen';
 import { backupService } from '@/services/backupService';
+import { localBackupRepository } from '@/data/syncRepository';
 import { useDiaryStore } from '@/store/diaryStore';
 import { useSecurityStore } from '@/store/securityStore';
+import { useSyncStore } from '@/store/syncStore';
 import { colors, radius, spacing, typography } from '@/theme/tokens';
 import { getErrorMessage } from '@/utils/errors';
 
@@ -55,6 +59,7 @@ const confirmAction = (title: string, message: string): Promise<boolean> => {
 };
 
 export default function SettingsScreen() {
+  const router = useRouter();
   const [busy, setBusy] = useState(false);
   const days = useDiaryStore((state) => state.days);
   const monthlyPlans = useDiaryStore((state) => state.monthlyPlans);
@@ -63,6 +68,8 @@ export default function SettingsScreen() {
   const clearAll = useDiaryStore((state) => state.clearAll);
   const lockEnabled = useSecurityStore((state) => state.enabled);
   const setLockEnabled = useSecurityStore((state) => state.setEnabled);
+  const localBackupCount = useSyncStore((state) => state.localBackupCount);
+  const restoreLatestBackup = useSyncStore((state) => state.restoreLatestBackup);
   const entryCount = useMemo(() => Object.values(days).reduce((sum, day) => sum + day.events.length, 0), [days]);
   const planCount = useMemo(() => Object.values(monthlyPlans).flat().filter((plan) => plan.trim()).length, [monthlyPlans]);
 
@@ -89,6 +96,7 @@ export default function SettingsScreen() {
     const dayCount = Object.keys(snapshot.days).length;
     const confirmed = await confirmAction('恢复备份', `将用备份中的 ${dayCount} 天记录替换当前设备数据。是否继续？`);
     if (!confirmed) return;
+    await localBackupRepository.create({ schemaVersion: 1, days, monthlyPlans, updatedAt }, 'before-import');
     await replaceSnapshot(snapshot);
     Alert.alert('恢复完成', '日记与月度计划已从备份恢复。');
   });
@@ -100,6 +108,13 @@ export default function SettingsScreen() {
     Alert.alert('完成', '本地数据已清空。');
   });
 
+  const restoreLocalBackup = () => runTask(async () => {
+    const confirmed = await confirmAction('恢复本地自动备份', '将用最近一次安全快照替换当前日记和计划。是否继续？');
+    if (!confirmed) return;
+    const restored = await restoreLatestBackup();
+    Alert.alert(restored ? '恢复完成' : '没有备份', restored ? '最近的本地安全快照已恢复。' : '当前还没有可恢复的本地快照。');
+  });
+
   return (
     <Screen>
       <PageHeader title="设置" subtitle="数据默认只保存在当前设备" />
@@ -108,7 +123,7 @@ export default function SettingsScreen() {
           <Image source={require('../../assets/icon.png')} style={styles.logo} />
           <View>
             <Text style={styles.brandTitle}>CalendarDiary</Text>
-            <Text style={styles.brandVersion}>移动端 0.1.0</Text>
+            <Text style={styles.brandVersion}>移动端 {Constants.expoConfig?.version ?? '0.2.0'}</Text>
           </View>
         </View>
 
@@ -143,11 +158,12 @@ export default function SettingsScreen() {
           />
         </View>
 
-        <Text style={styles.sectionTitle}>备份与恢复</Text>
+        <Text style={styles.sectionTitle}>本地备份与可选同步</Text>
         <View style={styles.group}>
+          <SettingRow icon={DatabaseBackup} title="本地自动备份（无需服务器）" description={`已保留 ${localBackupCount} 份安全快照，点击可恢复`} onPress={restoreLocalBackup} />
           <SettingRow icon={Download} title="导出备份" description="生成与桌面端兼容的 JSON 文件" onPress={busy ? undefined : exportBackup} />
           <SettingRow icon={Upload} title="导入备份" description="校验文件后恢复日记和月度计划" onPress={busy ? undefined : importBackup} />
-          <SettingRow icon={DatabaseBackup} title="跨端格式" description="后续可直接接入 WebDAV 同步" />
+          <SettingRow icon={Cloud} title="可选：WebDAV 跨设备同步" description="已有 WebDAV 的用户可同步手机与电脑，不配置不联网" onPress={() => router.push('/sync')} />
         </View>
 
         <Text style={styles.sectionTitle}>项目</Text>
