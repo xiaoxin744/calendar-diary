@@ -1,7 +1,7 @@
 
 import React, { useState, useCallback, memo } from 'react';
 import { format } from '../utils/dateUtils';
-import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CalendarDays, ChevronLeft, ChevronRight } from 'lucide-react';
 import { t, getMonthName } from '../utils/i18n';
 
 interface CalendarHeaderProps {
@@ -71,6 +71,14 @@ const CalendarHeaderComponent: React.FC<CalendarHeaderProps> = ({
                     </button>
                     <button onClick={onNextMonth} className="p-1 hover:bg-stone-200 rounded-full text-stone-500 transition-colors" title="Next month">
                     <ArrowRight size={16} />
+                    </button>
+                    <button
+                      onClick={() => onDateSelect(new Date())}
+                      className="ml-1 flex items-center gap-1 px-2 py-1 hover:bg-stone-200 rounded-full text-stone-500 transition-colors"
+                      title={`${t('today')} (Alt+T)`}
+                    >
+                      <CalendarDays size={15} />
+                      <span className="text-[10px] font-semibold">{t('today')}</span>
                     </button>
                 </div>
             </div>
@@ -152,4 +160,3 @@ const CalendarHeaderComponent: React.FC<CalendarHeaderProps> = ({
 
 // 使用 memo 包装，避免不必要的重渲染
 export const CalendarHeader = memo(CalendarHeaderComponent);
-    

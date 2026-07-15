@@ -10,11 +10,11 @@
 
 **一款简洁优雅的日历日记应用，帮助你记录每天的点滴生活**
 
-[![Version](https://img.shields.io/badge/version-0.2.0--beta-blue.svg)](https://github.com/trustdev-org/calendar-diary/releases)
+[![Version](https://img.shields.io/badge/version-0.2.0--beta-blue.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 [![License](https://img.shields.io/badge/license-CC--BY--NC--4.0-green.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/trustdev-org/calendar-diary/releases)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux%20%7C%20Android%20%7C%20iOS%20%7C%20Web-lightgrey.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 
-[📥 下载应用](#-下载安装) • [✨ 使用方法](#-使用方法) • [🚀 开发指南](#-开发指南) • [📝 更新日志](CHANGELOG.md)
+[📥 下载应用](#-下载安装) • [✨ 使用方法](#-使用方法) • [🚀 开发指南](#-开发指南) • [🔒 隐私说明](PRIVACY.md) • [📝 更新日志](CHANGELOG.md)
 
 </div>
 
@@ -22,7 +22,7 @@
 
 ## 📖 软件介绍
 
-CalendarDiary 是一款跨平台的桌面日历日记应用，采用现代化设计理念，为用户提供简洁直观的记录体验。
+CalendarDiary 是一款覆盖桌面端、移动端与 Web 的跨平台日历日记应用，采用本地优先的数据策略和简洁直观的记录体验。
 
 ### 软件界面展示
 
@@ -51,26 +51,41 @@ CalendarDiary 是一款跨平台的桌面日历日记应用，采用现代化设
 
 ## ⭐️ Stars 
 
-[![Star History Chart](https://api.star-history.com/svg?repos=trustdev-org/calendar-diary&type=date&legend=top-left)](https://www.star-history.com/#trustdev-org/calendar-diary&type=date&legend=top-left)
+[![Star History Chart](https://api.star-history.com/svg?repos=xiaoxin744/calendar-diary&type=date&legend=top-left)](https://www.star-history.com/#xiaoxin744/calendar-diary&type=date&legend=top-left)
 
 ## 🛠️ 技术栈
 
 | 技术 | 版本 | 用途 |
 |------|------|------|
 | **React** | 19.2.0 | UI 框架 |
-| **TypeScript** | 5.8.2 | 类型安全 |
-| **Electron** | 39.2.3 | 桌面应用框架 |
-| **Vite** | 6.4.1 | 构建工具 |
-| **Tailwind CSS** | 4.1.8 | 样式框架 |
-| **date-fns** | 4.1.0 | 日期处理 |
-| **Lucide React** | 0.469.0 | 图标库 |
-| **webdav** | 5.8.0 | WebDAV 客户端 |
+| **TypeScript** | 5.8 / 6.0 | 桌面端与移动端类型安全 |
+| **Electron** | 39.x | 桌面应用框架 |
+| **Expo / React Native** | SDK 57 / 0.86 | Android、iOS 与 Web 客户端 |
+| **Vite** | 6.4 | 桌面端构建工具 |
+| **Tailwind CSS** | 4.3 | 桌面端样式框架 |
+| **date-fns** | 4.x | 日期处理 |
+| **Lucide** | 0.554 | 跨端图标库 |
+| **webdav** | 5.10 | WebDAV 客户端 |
 
-## 📥 下载安装
+## 📱 移动端
+
+仓库中的 [`mobile`](mobile/) 目录提供 Android、iOS 与 Web 客户端，核心数据格式与桌面端兼容。
+
+```bash
+cd mobile
+npm install
+npm run start
+```
+
+当前已支持月历、日记编辑、心情、月度计划、全文搜索、备份恢复和设备生物识别保护。详细说明见 [`mobile/README.md`](mobile/README.md)。
+
+---
+
+## 📥 桌面端下载安装
 
 ### 最新版本：v0.2.0-beta
 
-前往 [Releases](https://github.com/trustdev-org/calendar-diary/releases) 页面下载适合你系统的安装包：
+前往 [Releases](https://github.com/xiaoxin744/calendar-diary/releases) 页面下载适合你系统的安装包：
 
 | 平台 | 文件类型 | 说明 |
 |------|----------|------|
@@ -110,6 +125,7 @@ sudo dpkg -i calendar-diary_0.2.0-beta_amd64.deb
 #### 1️⃣ 查看日历
 - 启动应用后，默认显示当月日历
 - 点击左右箭头切换月份
+- 点击「今天」或按 `Alt+T` 随时返回当天
 - 点击日期数字快速跳转到指定日期
 
 #### 2️⃣ 记录日记/待办
@@ -184,7 +200,7 @@ sudo dpkg -i calendar-diary_0.2.0-beta_amd64.deb
 ### 克隆项目
 
 ```bash
-git clone https://github.com/trustdev-org/calendar-diary.git
+git clone https://github.com/xiaoxin744/calendar-diary.git
 cd calendar-diary
 ```
 
@@ -277,6 +293,7 @@ npm run electron:build:linux
 
 ## 🙏 致谢
 
+- 上游项目：[trustdev-org/calendar-diary](https://github.com/trustdev-org/calendar-diary)
 - 图标库：[Lucide Icons](https://lucide.dev/)
 - UI 框架：[React](https://react.dev/)
 - 桌面框架：[Electron](https://www.electronjs.org/)
@@ -284,8 +301,8 @@ npm run electron:build:linux
 
 ## 📮 联系方式
 
-- **问题反馈**: [GitHub Issues](https://github.com/trustdev-org/calendar-diary/issues)
-- **项目主页**: [GitHub Repository](https://github.com/trustdev-org/calendar-diary)
+- **问题反馈**: [GitHub Issues](https://github.com/xiaoxin744/calendar-diary/issues)
+- **项目主页**: [GitHub Repository](https://github.com/xiaoxin744/calendar-diary)
 
 ---
 
@@ -293,6 +310,6 @@ npm run electron:build:linux
 
 **如果这个项目对你有帮助，请给个 ⭐ Star！**
 
-Made with ❤️ by TrustDev
+Original project by TrustDev · Mobile edition maintained by xiaoxin744
 
 </div>

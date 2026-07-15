@@ -7,21 +7,34 @@
     "name": "TrustDev",
     "email": "admin@trustdev.org"
   },
+  "contributors": [
+    {
+      "name": "xiaoxin744"
+    }
+  ],
   "license": "CC-BY-NC-4.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/trustdev-org/calendar-diary.git"
+    "url": "https://github.com/xiaoxin744/calendar-diary.git"
   },
-  "homepage": "https://github.com/trustdev-org/calendar-diary",
+  "homepage": "https://github.com/xiaoxin744/calendar-diary",
   "main": "dist-electron/main.cjs",
   "scripts": {
     "dev": "vite",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.electron.json",
     "build": "vite build && electron-builder",
     "preview": "vite preview",
     "electron:build": "vite build && electron-builder",
     "electron:build:mac": "vite build && electron-builder --mac",
     "electron:build:win": "vite build && electron-builder --win",
-    "electron:build:linux": "vite build && electron-builder --linux"
+    "electron:build:linux": "vite build && electron-builder --linux",
+    "mobile:start": "npm --prefix mobile run start",
+    "mobile:web": "npm --prefix mobile run web",
+    "mobile:lint": "npm --prefix mobile run lint",
+    "mobile:test": "npm --prefix mobile run test",
+    "mobile:typecheck": "npm --prefix mobile run typecheck",
+    "mobile:export:web": "npm --prefix mobile run export:web"
   },
   "dependencies": {
     "date-fns": "^4.1.0",
@@ -31,21 +44,26 @@
     "qrcode": "^1.5.4",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "webdav": "^5.8.0"
+    "webdav": "^5.10.0"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.3.2",
     "@types/node": "^22.14.0",
     "@types/qrcode": "^1.5.6",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.0.0",
     "concurrently": "^8.2.2",
     "electron": "^39.2.3",
-    "electron-builder": "^24.9.1",
+    "electron-builder": "^26.15.3",
     "png2icons": "^2.0.1",
+    "tailwindcss": "^4.3.2",
     "tsx": "^4.7.0",
     "typescript": "~5.8.2",
     "vite": "^6.2.0",
     "vite-plugin-electron": "^0.28.2",
     "vite-plugin-electron-renderer": "^0.14.5",
+    "vitest": "^3.2.7",
     "wait-on": "^7.2.0"
   },
   "build": {
@@ -63,7 +81,7 @@
     "publish": [
       {
         "provider": "github",
-        "owner": "trustdev-org",
+        "owner": "xiaoxin744",
         "repo": "calendar-diary"
       }
     ],

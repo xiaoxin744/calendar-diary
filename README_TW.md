@@ -10,9 +10,9 @@
 
 **一款簡潔優雅的日曆日記應用，幫助你記錄每天的點滴生活**
 
-[![Version](https://img.shields.io/badge/version-0.2.0--beta-blue.svg)](https://github.com/trustdev-org/calendar-diary/releases)
+[![Version](https://img.shields.io/badge/version-0.2.0--beta-blue.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 [![License](https://img.shields.io/badge/license-CC--BY--NC--4.0-green.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/trustdev-org/calendar-diary/releases)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 
 [📥 下載應用](#-下載安裝) • [✨ 使用方法](#-使用方法) • [🚀 開發指南](#-開發指南) • [📝 更新日誌](CHANGELOG.md)
 
@@ -43,7 +43,7 @@ CalendarDiary 是一款跨平台的桌面日曆日記應用，採用現代化設
 
 ## ⭐️ Stars 
 
-[![Star History Chart](https://api.star-history.com/svg?repos=trustdev-org/calendar-diary&type=date&legend=top-left)](https://www.star-history.com/#trustdev-org/calendar-diary&type=date&legend=top-left)
+[![Star History Chart](https://api.star-history.com/svg?repos=xiaoxin744/calendar-diary&type=date&legend=top-left)](https://www.star-history.com/#xiaoxin744/calendar-diary&type=date&legend=top-left)
 
 ## 🛠️ 技術棧
 
@@ -62,7 +62,7 @@ CalendarDiary 是一款跨平台的桌面日曆日記應用，採用現代化設
 
 ### 最新版本：v0.2.0-beta
 
-前往 [Releases](https://github.com/trustdev-org/calendar-diary/releases) 頁面下載適合你系統的安裝包：
+前往 [Releases](https://github.com/xiaoxin744/calendar-diary/releases) 頁面下載適合你系統的安裝包：
 
 | 平台 | 檔案類型 | 說明 |
 |------|----------|------|
@@ -176,7 +176,7 @@ sudo dpkg -i calendar-diary_0.2.0-beta_amd64.deb
 ### 複製專案
 
 ```bash
-git clone https://github.com/trustdev-org/calendar-diary.git
+git clone https://github.com/xiaoxin744/calendar-diary.git
 cd calendar-diary
 ```
 
@@ -274,8 +274,8 @@ npm run electron:build:linux
 
 ## 📮 聯繫方式
 
-- **問題回饋**: [GitHub Issues](https://github.com/trustdev-org/calendar-diary/issues)
-- **專案首頁**: [GitHub Repository](https://github.com/trustdev-org/calendar-diary)
+- **問題回饋**: [GitHub Issues](https://github.com/xiaoxin744/calendar-diary/issues)
+- **專案首頁**: [GitHub Repository](https://github.com/xiaoxin744/calendar-diary)
 
 ---
 

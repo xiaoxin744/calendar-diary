@@ -14,7 +14,7 @@ import {
   getYear,
   getMonth
 } from 'date-fns';
-import { Lunar, Solar } from 'lunar-javascript';
+import { Solar } from 'lunar-javascript';
 
 // 节假日定义
 interface Holiday {

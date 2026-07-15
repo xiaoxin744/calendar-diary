@@ -12,16 +12,17 @@ interface SettingsModalProps {
   onExport: () => void;
   onImport: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onDisplaySettingsChange?: (mode: 'ellipsis' | 'scroll') => void;
+  defaultTab?: TabType;
 }
 
 type TabType = 'general' | 'security' | 'cloud';
 
-export const SettingsModal: React.FC<SettingsModalProps> = ({ onClose, onExport, onImport, onDisplaySettingsChange }) => {
+export const SettingsModal: React.FC<SettingsModalProps> = ({ onClose, onExport, onImport, onDisplaySettingsChange, defaultTab = 'general' }) => {
   const [dataPath, setDataPath] = useState('LocalStorage (Browser)');
   const [isElectron, setIsElectron] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState<Language>(getCurrentLanguage());
   const [isVisible, setIsVisible] = useState(false);
-  const [activeTab, setActiveTab] = useState<TabType>('general');
+  const [activeTab, setActiveTab] = useState<TabType>(defaultTab);
   const [appVersion, setAppVersion] = useState<string>('');
   
   
@@ -134,8 +135,6 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ onClose, onExport,
     if (savedSecurity) {
       try {
         const security = JSON.parse(savedSecurity);
-        console.log('Loaded security settings:', security);
-        
         setSecurityEnabled(security.enabled || false);
         setSecurityType(security.preferredMethod || 'pin');
         
@@ -299,7 +298,6 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ onClose, onExport,
       securitySettings.totpSecret = totpSecret;
     }
     
-    console.log('Saving security settings:', securitySettings);
     localStorage.setItem('calendar-diary-security', JSON.stringify(securitySettings));
     setPinError('');
     
@@ -311,7 +309,6 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ onClose, onExport,
       setSavedTotp(true);
     }
     
-    console.log('Security settings saved successfully');
     onClose();
   };
 

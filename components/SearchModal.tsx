@@ -3,6 +3,7 @@ import { X, Search } from 'lucide-react';
 import { t } from '../utils/i18n';
 import { format, parse } from '../utils/dateUtils';
 import { DayData } from '../types';
+import { escapeRegExp } from '../utils/textUtils';
 
 interface SearchModalProps {
   onClose: () => void;
@@ -77,7 +78,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ onClose, data, onSelec
   const highlightMatch = (text: string, query: string) => {
     if (!query) return text;
     
-    const parts = text.split(new RegExp(`(${query})`, 'gi'));
+    const parts = text.split(new RegExp(`(${escapeRegExp(query)})`, 'gi'));
     return parts.map((part, index) => 
       part.toLowerCase() === query.toLowerCase() ? (
         <mark key={index} className="bg-yellow-200 text-stone-900 rounded px-0.5">

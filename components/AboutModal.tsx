@@ -20,7 +20,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({ onClose }) => {
   }, []);
 
   const handleGithubClick = async () => {
-    const url = 'https://github.com/trustdev-org/calendar-diary';
+    const url = 'https://github.com/xiaoxin744/calendar-diary';
     
     if (window.electronAPI) {
       // Electron环境：使用shell.openExternal在系统默认浏览器中打开
@@ -28,11 +28,11 @@ export const AboutModal: React.FC<AboutModalProps> = ({ onClose }) => {
         await window.electronAPI.shell.openExternal(url);
       } catch (error) {
         console.error('Failed to open URL:', error);
-        window.open(url, '_blank');
+        window.open(url, '_blank', 'noopener,noreferrer');
       }
     } else {
       // 浏览器环境：直接在新标签页打开
-      window.open(url, '_blank');
+      window.open(url, '_blank', 'noopener,noreferrer');
     }
   };
 
@@ -103,13 +103,13 @@ export const AboutModal: React.FC<AboutModalProps> = ({ onClose }) => {
             >
               <Github size={18} />
               <span className="font-medium">GitHub</span>
-              <span className="text-sm opacity-75">trustdev-org/calendar-diary</span>
+              <span className="text-sm opacity-75">xiaoxin744/calendar-diary</span>
             </button>
           </div>
 
           {/* Copyright */}
           <div className="text-center text-xs text-stone-400 pt-2 border-t border-stone-100">
-            <div>© 2025 TrustDev. {t('allRightsReserved')}</div>
+            <div>© 2025 TrustDev · Maintained by xiaoxin744</div>
             <div className="mt-1 text-stone-300">Licensed under CC BY-NC 4.0</div>
           </div>
         </div>

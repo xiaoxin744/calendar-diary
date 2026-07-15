@@ -35,9 +35,9 @@ const compareVersions = (current: string, latest: string): number => {
 // 打开外部链接的通用函数
 const openExternalUrl = (url: string) => {
   if (window.electronAPI?.shell?.openExternal) {
-    window.electronAPI.shell.openExternal(url);
+    void window.electronAPI.shell.openExternal(url);
   } else {
-    window.open(url, '_blank');
+    window.open(url, '_blank', 'noopener,noreferrer');
   }
 };
 
@@ -67,7 +67,7 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({ onClose }) => {
     setErrorMessage('');
     
     try {
-      const response = await fetch('https://api.github.com/repos/trustdev-org/calendar-diary/releases/latest', {
+      const response = await fetch('https://api.github.com/repos/xiaoxin744/calendar-diary/releases/latest', {
         headers: { 'Accept': 'application/vnd.github.v3+json' }
       });
       
@@ -94,7 +94,7 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({ onClose }) => {
 
   // 打开发布页
   const openReleasePage = useCallback(() => {
-    openExternalUrl('https://diary.trustdev.org/');
+    openExternalUrl('https://github.com/xiaoxin744/calendar-diary/releases');
   }, []);
 
   // 打开 GitHub Release 页面

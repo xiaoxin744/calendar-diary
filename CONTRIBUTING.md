@@ -8,7 +8,7 @@
 
 发现 Bug？请通过以下方式报告：
 
-1. 前往 [Issues](https://github.com/trustdev-org/calendar-diary/issues)
+1. 前往 [Issues](https://github.com/xiaoxin744/calendar-diary/issues)
 2. 点击 "New Issue"
 3. 选择 "Bug Report" 模板
 4. 填写必要信息：
@@ -23,7 +23,7 @@
 
 有好的想法？我们很乐意听取！
 
-1. 前往 [Issues](https://github.com/trustdev-org/calendar-diary/issues)
+1. 前往 [Issues](https://github.com/xiaoxin744/calendar-diary/issues)
 2. 选择 "Feature Request" 模板
 3. 详细描述你的想法：
    - 功能描述
@@ -208,7 +208,7 @@ npm run electron:build:linux
 ## 问题？
 
 如果你有任何问题，可以：
-- 在 [Issues](https://github.com/trustdev-org/calendar-diary/issues) 中提问
+- 在 [Issues](https://github.com/xiaoxin744/calendar-diary/issues) 中提问
 - 查看现有的 Issues 和 Pull Requests
 - 查阅 [README.md](README.md) 文档
 

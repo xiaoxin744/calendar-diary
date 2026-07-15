@@ -1,0 +1,69 @@
+{
+  "expo": {
+    "name": "CalendarDiary",
+    "description": "本地优先、简洁安全的跨平台日历日记。",
+    "slug": "calendar-diary-mobile",
+    "scheme": "calendardiary",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "backgroundColor": "#F7F6F2",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.xiaoxin744.calendardiary"
+    },
+    "android": {
+      "package": "com.xiaoxin744.calendardiary",
+      "blockedPermissions": [
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ],
+      "adaptiveIcon": {
+        "backgroundColor": "#202A32",
+        "foregroundImage": "./assets/icon.png"
+      },
+      "predictiveBackGestureEnabled": true
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "static"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-secure-store",
+        {
+          "configureAndroidBackup": true,
+          "faceIDPermission": "允许 CalendarDiary 使用 Face ID 解锁私人日记。"
+        }
+      ],
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "允许 CalendarDiary 使用 Face ID 解锁私人日记。"
+        }
+      ],
+      [
+        "expo-file-system",
+        {
+          "supportsOpeningDocumentsInPlace": true,
+          "enableFileSharing": true
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 160,
+          "resizeMode": "contain",
+          "backgroundColor": "#F7F6F2"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

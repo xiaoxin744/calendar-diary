@@ -1,5 +1,7 @@
 // WebDAV 同步服务
-import { createClient, type WebDAVClient, type FileStat } from 'webdav/web';
+import { createClient, type WebDAVClient, type FileStat } from 'webdav';
+import type { DayData } from '../types';
+import { isSyncData } from '../utils/dataValidation';
 
 export interface WebDAVConfig {
   serverUrl: string;
@@ -11,7 +13,7 @@ export interface WebDAVConfig {
 export interface SyncData {
   version: number;
   updatedAt: string; // ISO 时间戳
-  data: Record<string, any>;
+  data: Record<string, DayData>;
   monthlyPlans: Record<string, string[]>;
 }
 
@@ -27,6 +29,7 @@ export type SyncLogCallback = (message: string, type?: 'info' | 'error' | 'succe
 const STORAGE_KEY = 'calendar-diary-webdav';
 const DATA_PATH = '/data/current.json';
 const BACKUPS_PATH = '/backups';
+const BACKUP_FILENAME_PATTERN = /^backup-\d{8}-\d{6}\.json$/;
 
 export class WebDAVService {
   private client: WebDAVClient | null = null;
@@ -57,8 +60,23 @@ export class WebDAVService {
 
   // 初始化客户端 (别名: connect)
   initialize(config: WebDAVConfig): void {
-    this.config = config;
-    this.client = createClient(config.serverUrl, {
+    const serverUrl = new URL(config.serverUrl);
+    if (serverUrl.protocol !== 'https:' && serverUrl.protocol !== 'http:') {
+      throw new Error('WebDAV 地址必须使用 HTTP(S) 协议');
+    }
+
+    const rootSegments = (config.rootPath || '/CalendarDiary').split('/').filter(Boolean);
+    if (rootSegments.some(segment => segment === '.' || segment === '..')) {
+      throw new Error('WebDAV 根目录不能包含相对路径段');
+    }
+
+    const normalizedConfig = {
+      ...config,
+      serverUrl: serverUrl.toString(),
+      rootPath: `/${rootSegments.join('/')}`,
+    };
+    this.config = normalizedConfig;
+    this.client = createClient(normalizedConfig.serverUrl, {
       username: config.username,
       password: config.password,
     });
@@ -100,8 +118,8 @@ export class WebDAVService {
     const rootPath = this.config.rootPath || '/CalendarDiary';
     const paths = [
       rootPath,
-      `${rootPath}/data`,
-      `${rootPath}/backups`,
+      this.getFullPath('/data'),
+      this.getFullPath('/backups'),
     ];
 
     for (const path of paths) {
@@ -120,7 +138,7 @@ export class WebDAVService {
   // 获取完整路径
   private getFullPath(relativePath: string): string {
     const rootPath = this.config?.rootPath || '/CalendarDiary';
-    return `${rootPath}${relativePath}`;
+    return rootPath === '/' ? relativePath : `${rootPath}${relativePath}`;
   }
 
   // 读取云端数据
@@ -131,7 +149,9 @@ export class WebDAVService {
     
     try {
       const content = await this.client.getFileContents(fullPath, { format: 'text' }) as string;
-      return JSON.parse(content);
+      const parsed: unknown = JSON.parse(content);
+      if (!isSyncData(parsed)) throw new Error('云端数据格式无效');
+      return parsed;
     } catch (error: any) {
       if (error.status === 404) {
         return null; // 文件不存在
@@ -188,7 +208,7 @@ export class WebDAVService {
       const items = await this.client.getDirectoryContents(fullPath) as FileStat[];
       
       return items
-        .filter(item => item.type === 'file' && item.basename.startsWith('backup-') && item.basename.endsWith('.json'))
+        .filter(item => item.type === 'file' && BACKUP_FILENAME_PATTERN.test(item.basename))
         .map(item => ({
           filename: item.basename,
           path: item.filename,
@@ -207,15 +227,19 @@ export class WebDAVService {
   // 读取备份文件
   async readBackup(filename: string): Promise<SyncData> {
     if (!this.client) throw new Error('未初始化');
+    if (!BACKUP_FILENAME_PATTERN.test(filename)) throw new Error('备份文件名无效');
 
     const fullPath = this.getFullPath(`${BACKUPS_PATH}/${filename}`);
     const content = await this.client.getFileContents(fullPath, { format: 'text' }) as string;
-    return JSON.parse(content);
+    const parsed: unknown = JSON.parse(content);
+    if (!isSyncData(parsed)) throw new Error('备份数据格式无效');
+    return parsed;
   }
 
   // 删除备份文件
   async deleteBackup(filename: string): Promise<void> {
     if (!this.client) throw new Error('未初始化');
+    if (!BACKUP_FILENAME_PATTERN.test(filename)) throw new Error('备份文件名无效');
 
     const fullPath = this.getFullPath(`${BACKUPS_PATH}/${filename}`);
     await this.client.deleteFile(fullPath);

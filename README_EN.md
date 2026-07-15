@@ -10,9 +10,9 @@
 
 **A simple and elegant calendar diary app to record your daily life**
 
-[![Version](https://img.shields.io/badge/version-0.2.0--beta-blue.svg)](https://github.com/trustdev-org/calendar-diary/releases)
+[![Version](https://img.shields.io/badge/version-0.2.0--beta-blue.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 [![License](https://img.shields.io/badge/license-CC--BY--NC--4.0-green.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/trustdev-org/calendar-diary/releases)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 
 [📥 Download](#-installation) • [✨ Usage](#-usage) • [🚀 Development](#-development-guide) • [📝 Changelog](CHANGELOG.md)
 
@@ -43,7 +43,7 @@ CalendarDiary is a cross-platform desktop calendar diary application with a mode
 
 ## ⭐️ Stars 
 
-[![Star History Chart](https://api.star-history.com/svg?repos=trustdev-org/calendar-diary&type=date&legend=top-left)](https://www.star-history.com/#trustdev-org/calendar-diary&type=date&legend=top-left)
+[![Star History Chart](https://api.star-history.com/svg?repos=xiaoxin744/calendar-diary&type=date&legend=top-left)](https://www.star-history.com/#xiaoxin744/calendar-diary&type=date&legend=top-left)
 
 ## 🛠️ Tech Stack
 
@@ -62,7 +62,7 @@ CalendarDiary is a cross-platform desktop calendar diary application with a mode
 
 ### Latest Version: v0.2.0-beta
 
-Go to [Releases](https://github.com/trustdev-org/calendar-diary/releases) page to download the installer for your system:
+Go to [Releases](https://github.com/xiaoxin744/calendar-diary/releases) page to download the installer for your system:
 
 | Platform | File Type | Description |
 |----------|-----------|-------------|
@@ -102,6 +102,7 @@ sudo dpkg -i calendar-diary_0.2.0-beta_amd64.deb
 #### 1️⃣ View Calendar
 - App shows current month calendar by default
 - Click arrows to switch months
+- Click "Today" or press `Alt+T` to return to the current date
 - Click date number to quickly jump to specific date
 
 #### 2️⃣ Record Diary/Todos
@@ -176,7 +177,7 @@ sudo dpkg -i calendar-diary_0.2.0-beta_amd64.deb
 ### Clone Project
 
 ```bash
-git clone https://github.com/trustdev-org/calendar-diary.git
+git clone https://github.com/xiaoxin744/calendar-diary.git
 cd calendar-diary
 ```
 
@@ -274,8 +275,8 @@ This project is licensed under [CC-BY-NC-4.0](LICENSE).
 
 ## 📮 Contact
 
-- **Issue Feedback**: [GitHub Issues](https://github.com/trustdev-org/calendar-diary/issues)
-- **Project Homepage**: [GitHub Repository](https://github.com/trustdev-org/calendar-diary)
+- **Issue Feedback**: [GitHub Issues](https://github.com/xiaoxin744/calendar-diary/issues)
+- **Project Homepage**: [GitHub Repository](https://github.com/xiaoxin744/calendar-diary)
 
 ---
 

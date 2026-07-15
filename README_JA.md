@@ -10,9 +10,9 @@
 
 **毎日の生活を記録するシンプルでエレガントなカレンダー日記アプリ**
 
-[![Version](https://img.shields.io/badge/version-0.2.0--beta-blue.svg)](https://github.com/trustdev-org/calendar-diary/releases)
+[![Version](https://img.shields.io/badge/version-0.2.0--beta-blue.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 [![License](https://img.shields.io/badge/license-CC--BY--NC--4.0-green.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/trustdev-org/calendar-diary/releases)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 
 [📥 ダウンロード](#-インストール) • [✨ 使い方](#-使い方) • [🚀 開発ガイド](#-開発ガイド) • [📝 変更履歴](CHANGELOG.md)
 
@@ -43,7 +43,7 @@ CalendarDiary は、モダンなデザイン哲学を採用したクロスプラ
 
 ## ⭐️ Stars 
 
-[![Star History Chart](https://api.star-history.com/svg?repos=trustdev-org/calendar-diary&type=date&legend=top-left)](https://www.star-history.com/#trustdev-org/calendar-diary&type=date&legend=top-left)
+[![Star History Chart](https://api.star-history.com/svg?repos=xiaoxin744/calendar-diary&type=date&legend=top-left)](https://www.star-history.com/#xiaoxin744/calendar-diary&type=date&legend=top-left)
 
 ## 🛠️ 技術スタック
 
@@ -62,7 +62,7 @@ CalendarDiary は、モダンなデザイン哲学を採用したクロスプラ
 
 ### 最新バージョン：v0.2.0-beta
 
-[Releases](https://github.com/trustdev-org/calendar-diary/releases) ページから、お使いのシステムに適したインストーラーをダウンロードしてください：
+[Releases](https://github.com/xiaoxin744/calendar-diary/releases) ページから、お使いのシステムに適したインストーラーをダウンロードしてください：
 
 | プラットフォーム | ファイル形式 | 説明 |
 |-----------------|-------------|------|
@@ -176,7 +176,7 @@ sudo dpkg -i calendar-diary_0.2.0-beta_amd64.deb
 ### プロジェクトをクローン
 
 ```bash
-git clone https://github.com/trustdev-org/calendar-diary.git
+git clone https://github.com/xiaoxin744/calendar-diary.git
 cd calendar-diary
 ```
 
@@ -274,8 +274,8 @@ npm run electron:build:linux
 
 ## 📮 お問い合わせ
 
-- **Issue フィードバック**: [GitHub Issues](https://github.com/trustdev-org/calendar-diary/issues)
-- **プロジェクトページ**: [GitHub Repository](https://github.com/trustdev-org/calendar-diary)
+- **Issue フィードバック**: [GitHub Issues](https://github.com/xiaoxin744/calendar-diary/issues)
+- **プロジェクトページ**: [GitHub Repository](https://github.com/xiaoxin744/calendar-diary)
 
 ---
 

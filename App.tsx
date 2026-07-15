@@ -15,6 +15,34 @@ import { StorageService } from './services/storageService';
 import { WebDAVService } from './services/webdavService';
 import { Settings, Minus, Square, X, Github, Search, Cloud, RefreshCw } from 'lucide-react';
 import { t, getWeekDay } from './utils/i18n';
+import { isCalendarData, isMonthlyPlans, isObjectRecord } from './utils/dataValidation';
+
+interface SecuritySettings {
+  enabled?: boolean;
+  preferredMethod?: 'pin' | 'totp';
+  type?: 'pin' | 'totp';
+  pinCode?: string;
+  totpSecret?: string;
+}
+
+interface BackupPayload {
+  version?: number;
+  data?: Record<string, DayData>;
+  monthlyPlans?: Record<string, string[]>;
+}
+
+const parseSecuritySettings = (): SecuritySettings | null => {
+  const stored = localStorage.getItem('calendar-diary-security');
+  if (!stored) return null;
+
+  try {
+    const parsed: unknown = JSON.parse(stored);
+    return isObjectRecord(parsed) ? parsed as SecuritySettings : null;
+  } catch (error) {
+    console.error('Failed to parse security settings:', error);
+    return null;
+  }
+};
 
 const App: React.FC = () => {
   // --- State ---
@@ -29,7 +57,7 @@ const App: React.FC = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [showCloudSync, setShowCloudSync] = useState(false);
   const [showUpdate, setShowUpdate] = useState(false);
-  const [settingsDefaultTab, setSettingsDefaultTab] = useState<'general' | 'security' | 'webdav'>('general');
+  const [settingsDefaultTab, setSettingsDefaultTab] = useState<'general' | 'security' | 'cloud'>('general');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [needsAuth, setNeedsAuth] = useState(false);
   const [highlightDate, setHighlightDate] = useState<string | null>(null);
@@ -38,13 +66,10 @@ const App: React.FC = () => {
   // --- Lifecycle ---
   useEffect(() => {
     // 检查是否需要验证
-    const securitySettings = localStorage.getItem('calendar-diary-security');
-    if (securitySettings) {
-      const security = JSON.parse(securitySettings);
-      if (security.enabled) {
-        setNeedsAuth(true);
-        return;
-      }
+    const security = parseSecuritySettings();
+    if (security?.enabled) {
+      setNeedsAuth(true);
+      return;
     }
     setIsAuthenticated(true);
   }, []);
@@ -72,6 +97,11 @@ const App: React.FC = () => {
         e.preventDefault();
         setShowSearch(true);
       }
+
+      if (e.altKey && e.key.toLowerCase() === 't') {
+        e.preventDefault();
+        setCurrentDate(new Date());
+      }
     };
 
     window.addEventListener('keydown', handleKeyDown);
@@ -80,15 +110,15 @@ const App: React.FC = () => {
 
   // --- Handlers ---
   const saveData = useCallback(async (newData: Record<string, DayData>) => {
-    setData(newData);
     await StorageService.setData(newData);
+    setData(newData);
     // 更新数据修改时间戳，用于云同步比较
     localStorage.setItem('calendar-diary-data-updated-at', new Date().toISOString());
   }, []);
 
   const savePlans = useCallback(async (newPlans: Record<string, string[]>) => {
-    setMonthlyPlans(newPlans);
     await StorageService.setPlans(newPlans);
+    setMonthlyPlans(newPlans);
     // 更新数据修改时间戳，用于云同步比较
     localStorage.setItem('calendar-diary-data-updated-at', new Date().toISOString());
   }, []);
@@ -99,7 +129,10 @@ const App: React.FC = () => {
         ...prevData,
         [dateKey]: { date: dateKey, events, stickers }
       };
-      StorageService.setData(newData);
+      void StorageService.setData(newData).catch(error => {
+        console.error('Failed to save calendar data:', error);
+        alert(t('saveError'));
+      });
       localStorage.setItem('calendar-diary-data-updated-at', new Date().toISOString());
       return newData;
     });
@@ -115,7 +148,9 @@ const App: React.FC = () => {
         ...prevPlans,
         [monthKey]: newPlan
       };
-      StorageService.setPlans(newPlans);
+      void StorageService.setPlans(newPlans).catch(error => {
+        console.error('Failed to save monthly plans:', error);
+      });
       localStorage.setItem('calendar-diary-data-updated-at', new Date().toISOString());
       return newPlans;
     });
@@ -154,17 +189,29 @@ const App: React.FC = () => {
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = (event) => {
+    reader.onload = async (event) => {
       try {
-        const parsed = JSON.parse(event.target?.result as string);
-        if (parsed.data) saveData(parsed.data);
-        if (parsed.monthlyPlans) savePlans(parsed.monthlyPlans);
+        const parsed: unknown = JSON.parse(event.target?.result as string);
+        if (!isObjectRecord(parsed)) throw new Error('Invalid backup root');
+
+        const backup = parsed as BackupPayload;
+        const hasData = backup.data !== undefined;
+        const hasPlans = backup.monthlyPlans !== undefined;
+        if ((!hasData && !hasPlans) || (hasData && !isCalendarData(backup.data)) || (hasPlans && !isMonthlyPlans(backup.monthlyPlans))) {
+          throw new Error('Invalid backup payload');
+        }
+
+        const saves: Promise<void>[] = [];
+        if (hasData) saves.push(saveData(backup.data!));
+        if (hasPlans) saves.push(savePlans(backup.monthlyPlans!));
+        await Promise.all(saves);
         alert(t('importSuccess'));
         setShowSettings(false);
       } catch (err) {
         alert(t('importError'));
       }
     };
+    reader.onerror = () => alert(t('importError'));
     reader.readAsText(file);
   };
 
@@ -178,11 +225,7 @@ const App: React.FC = () => {
 
   // 获取安全设置
   const getSecuritySettings = useCallback(() => {
-    const securitySettings = localStorage.getItem('calendar-diary-security');
-    if (securitySettings) {
-      return JSON.parse(securitySettings);
-    }
-    return null;
+    return parseSecuritySettings();
   }, []);
 
   // 导航回调
@@ -233,7 +276,7 @@ const App: React.FC = () => {
                } else {
                  // 未配置 WebDAV，先弹出提示再打开设置
                  alert(t('cloudSyncNotConfigured'));
-                 setSettingsDefaultTab('webdav');
+                 setSettingsDefaultTab('cloud');
                  setShowSettings(true);
                }
              }} 
@@ -397,7 +440,7 @@ const App: React.FC = () => {
             onClose={() => setShowCloudSync(false)}
             onOpenWebDAVSettings={() => {
               setShowCloudSync(false);
-              setSettingsDefaultTab('webdav');
+              setSettingsDefaultTab('cloud');
               setShowSettings(true);
             }}
             onDataRestored={async () => {

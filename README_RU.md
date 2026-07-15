@@ -10,9 +10,9 @@
 
 **Простое и элегантное приложение-календарь для записи повседневной жизни**
 
-[![Version](https://img.shields.io/badge/version-0.2.0--beta-blue.svg)](https://github.com/trustdev-org/calendar-diary/releases)
+[![Version](https://img.shields.io/badge/version-0.2.0--beta-blue.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 [![License](https://img.shields.io/badge/license-CC--BY--NC--4.0-green.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/trustdev-org/calendar-diary/releases)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 
 [📥 Скачать](#-установка) • [✨ Использование](#-использование) • [🚀 Разработка](#-руководство-по-разработке) • [📝 История изменений](CHANGELOG.md)
 
@@ -43,7 +43,7 @@ CalendarDiary — кроссплатформенное настольное пр
 
 ## ⭐️ Stars 
 
-[![Star History Chart](https://api.star-history.com/svg?repos=trustdev-org/calendar-diary&type=date&legend=top-left)](https://www.star-history.com/#trustdev-org/calendar-diary&type=date&legend=top-left)
+[![Star History Chart](https://api.star-history.com/svg?repos=xiaoxin744/calendar-diary&type=date&legend=top-left)](https://www.star-history.com/#xiaoxin744/calendar-diary&type=date&legend=top-left)
 
 ## 🛠️ Технологии
 
@@ -62,7 +62,7 @@ CalendarDiary — кроссплатформенное настольное пр
 
 ### Последняя версия: v0.2.0-beta
 
-Перейдите на страницу [Releases](https://github.com/trustdev-org/calendar-diary/releases), чтобы скачать установщик для вашей системы:
+Перейдите на страницу [Releases](https://github.com/xiaoxin744/calendar-diary/releases), чтобы скачать установщик для вашей системы:
 
 | Платформа | Тип файла | Описание |
 |-----------|-----------|----------|
@@ -176,7 +176,7 @@ sudo dpkg -i calendar-diary_0.2.0-beta_amd64.deb
 ### Клонирование проекта
 
 ```bash
-git clone https://github.com/trustdev-org/calendar-diary.git
+git clone https://github.com/xiaoxin744/calendar-diary.git
 cd calendar-diary
 ```
 
@@ -274,8 +274,8 @@ npm run electron:build:linux
 
 ## 📮 Контакты
 
-- **Обратная связь**: [GitHub Issues](https://github.com/trustdev-org/calendar-diary/issues)
-- **Страница проекта**: [GitHub Repository](https://github.com/trustdev-org/calendar-diary)
+- **Обратная связь**: [GitHub Issues](https://github.com/xiaoxin744/calendar-diary/issues)
+- **Страница проекта**: [GitHub Repository](https://github.com/xiaoxin744/calendar-diary)
 
 ---
 

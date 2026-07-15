@@ -10,9 +10,9 @@
 
 **일상을 기록하는 심플하고 우아한 캘린더 다이어리 앱**
 
-[![Version](https://img.shields.io/badge/version-0.2.0--beta-blue.svg)](https://github.com/trustdev-org/calendar-diary/releases)
+[![Version](https://img.shields.io/badge/version-0.2.0--beta-blue.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 [![License](https://img.shields.io/badge/license-CC--BY--NC--4.0-green.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/trustdev-org/calendar-diary/releases)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)](https://github.com/xiaoxin744/calendar-diary/releases)
 
 [📥 다운로드](#-설치) • [✨ 사용법](#-사용법) • [🚀 개발 가이드](#-개발-가이드) • [📝 변경 로그](CHANGELOG.md)
 
@@ -43,7 +43,7 @@ CalendarDiary는 모던한 디자인 철학을 채택한 크로스 플랫폼 데
 
 ## ⭐️ Stars 
 
-[![Star History Chart](https://api.star-history.com/svg?repos=trustdev-org/calendar-diary&type=date&legend=top-left)](https://www.star-history.com/#trustdev-org/calendar-diary&type=date&legend=top-left)
+[![Star History Chart](https://api.star-history.com/svg?repos=xiaoxin744/calendar-diary&type=date&legend=top-left)](https://www.star-history.com/#xiaoxin744/calendar-diary&type=date&legend=top-left)
 
 ## 🛠️ 기술 스택
 
@@ -62,7 +62,7 @@ CalendarDiary는 모던한 디자인 철학을 채택한 크로스 플랫폼 데
 
 ### 최신 버전: v0.2.0-beta
 
-[Releases](https://github.com/trustdev-org/calendar-diary/releases) 페이지에서 시스템에 맞는 설치 파일을 다운로드하세요:
+[Releases](https://github.com/xiaoxin744/calendar-diary/releases) 페이지에서 시스템에 맞는 설치 파일을 다운로드하세요:
 
 | 플랫폼 | 파일 형식 | 설명 |
 |--------|----------|------|
@@ -176,7 +176,7 @@ sudo dpkg -i calendar-diary_0.2.0-beta_amd64.deb
 ### 프로젝트 클론
 
 ```bash
-git clone https://github.com/trustdev-org/calendar-diary.git
+git clone https://github.com/xiaoxin744/calendar-diary.git
 cd calendar-diary
 ```
 
@@ -274,8 +274,8 @@ npm run electron:build:linux
 
 ## 📮 연락처
 
-- **이슈 피드백**: [GitHub Issues](https://github.com/trustdev-org/calendar-diary/issues)
-- **프로젝트 홈페이지**: [GitHub Repository](https://github.com/trustdev-org/calendar-diary)
+- **이슈 피드백**: [GitHub Issues](https://github.com/xiaoxin744/calendar-diary/issues)
+- **프로젝트 홈페이지**: [GitHub Repository](https://github.com/xiaoxin744/calendar-diary)
 
 ---
 
