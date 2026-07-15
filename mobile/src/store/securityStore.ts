@@ -17,8 +17,14 @@ export const useSecurityStore = create<SecurityStore>((set, get) => ({
   locked: false,
 
   hydrate: async () => {
-    const enabled = await securityService.isLockEnabled();
-    set({ enabled, locked: enabled, hydrated: true });
+    try {
+      const enabled = await securityService.isLockEnabled();
+      set({ enabled, locked: enabled, hydrated: true });
+    } catch {
+      // 部分 Android 厂商系统在首次访问安全凭据库时可能返回异常。
+      // 安全锁属于可选功能，读取失败不能阻塞用户进入本地日记。
+      set({ enabled: false, locked: false, hydrated: true });
+    }
   },
 
   setEnabled: async (enabled) => {

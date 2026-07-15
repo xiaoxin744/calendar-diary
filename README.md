@@ -93,7 +93,7 @@ npm run start
 
 ## 📥 下载安装
 
-### 最新版本：v0.3.0-beta
+### 最新版本：v0.3.1-beta
 
 前往 [Releases](https://github.com/xiaoxin744/calendar-diary/releases) 页面下载适合你系统的安装包：
 
@@ -108,12 +108,12 @@ npm run start
 ### 安装说明
 
 #### Android
-1. 下载 `CalendarDiary-Mobile-0.2.0-android.apk`
+1. 下载 `CalendarDiary-Mobile-0.2.1-android.apk`
 2. 在手机文件管理器中打开 APK；首次安装时按系统提示允许该来源安装应用
 3. 安装后可直接离线使用；只有主动配置 WebDAV 时才会联网同步
 
 #### Windows
-1. 下载 `CalendarDiary-Setup-0.3.0-beta.exe`
+1. 下载 `CalendarDiary-Setup-0.3.1-beta.exe`
 2. 双击运行安装程序
 3. 按照向导完成安装
 

@@ -60,40 +60,29 @@ CalendarDiary는 모던한 디자인 철학을 채택한 크로스 플랫폼 데
 
 ## 📥 설치
 
-### 최신 버전: v0.3.0-beta
+### 최신 버전: v0.3.1-beta
 
-[Releases](https://github.com/xiaoxin744/calendar-diary/releases) 페이지에서 시스템에 맞는 설치 파일을 다운로드하세요:
+[Releases](https://github.com/xiaoxin744/calendar-diary/releases) 페이지에서 시스템에 맞는 패키지를 다운로드하세요:
 
 | 플랫폼 | 파일 형식 | 설명 |
 |--------|----------|------|
+| 🤖 **Android 8.0+** | `.apk` | 직접 설치하며, 기본값은 완전한 로컬 모드로 계정이나 서버가 필요 없음 |
 | 🪟 **Windows** | `.exe` (NSIS 설치 프로그램) | 사용자 정의 설치 경로 지원 |
 | 🪟 **Windows** | `.exe` (포터블) | 설치 없이 사용 |
-| 🍎 **macOS** | `.dmg` | Apple Silicon (M1/M2/M3) 지원 |
-| 🐧 **Linux** | `.AppImage` | 범용 Linux 형식 |
-| 🐧 **Linux** | `.deb` | Debian/Ubuntu 시스템 |
+
+> 이 프리릴리스는 Android와 Windows 패키지를 제공합니다. macOS, Linux 및 iOS 소스 코드는 유지되며 해당 시스템이나 CI 환경에서 빌드할 수 있습니다.
 
 ### 설치 방법
 
+#### Android
+1. `CalendarDiary-Mobile-0.2.1-android.apk` 다운로드
+2. 휴대폰 파일 관리자에서 APK를 열고, 요청되면 이 출처의 앱 설치를 허용
+3. 설치 후 오프라인으로 사용할 수 있으며 WebDAV를 직접 설정한 경우에만 네트워크에 연결합니다
+
 #### Windows
-1. `CalendarDiary-Setup-0.3.0-beta.exe` 다운로드
+1. `CalendarDiary-Setup-0.3.1-beta.exe` 다운로드
 2. 더블 클릭하여 설치 프로그램 실행
 3. 마법사를 따라 설치 완료
-
-#### macOS
-1. `CalendarDiary-0.3.0-beta-arm64.dmg` 다운로드
-2. DMG 파일 열기
-3. 앱을 Applications 폴더로 드래그
-4. 첫 실행 시 "시스템 설정 > 개인 정보 보호 및 보안"에서 허용이 필요할 수 있음
-
-#### Linux
-```bash
-# AppImage
-chmod +x CalendarDiary-0.3.0-beta-arm64.AppImage
-./CalendarDiary-0.3.0-beta-arm64.AppImage
-
-# Debian/Ubuntu
-sudo dpkg -i calendar-diary_0.3.0-beta_amd64.deb
-```
 
 ## 📖 사용법
 

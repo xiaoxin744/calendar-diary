@@ -60,40 +60,29 @@ CalendarDiary 是一款跨平台的桌面日曆日記應用，採用現代化設
 
 ## 📥 下載安裝
 
-### 最新版本：v0.3.0-beta
+### 最新版本：v0.3.1-beta
 
 前往 [Releases](https://github.com/xiaoxin744/calendar-diary/releases) 頁面下載適合你系統的安裝包：
 
 | 平台 | 檔案類型 | 說明 |
 |------|----------|------|
+| 🤖 **Android 8.0+** | `.apk` | 直接安裝，預設純本機使用，無需帳號或伺服器 |
 | 🪟 **Windows** | `.exe` (NSIS 安裝器) | 支援自訂安裝路徑 |
 | 🪟 **Windows** | `.exe` (可攜版) | 無需安裝，解壓即用 |
-| 🍎 **macOS** | `.dmg` | 適用於 Apple Silicon (M1/M2/M3) |
-| 🐧 **Linux** | `.AppImage` | 通用 Linux 應用格式 |
-| 🐧 **Linux** | `.deb` | Debian/Ubuntu 系統 |
+
+> 本次預發布提供 Android 與 Windows 安裝包。macOS、Linux 和 iOS 原始碼仍有保留，可在相應系統或 CI 環境中建置。
 
 ### 安裝說明
 
+#### Android
+1. 下載 `CalendarDiary-Mobile-0.2.1-android.apk`
+2. 在手機檔案管理器中開啟 APK；首次安裝時依系統提示允許此來源安裝應用程式
+3. 安裝後可直接離線使用；只有主動設定 WebDAV 時才會連線同步
+
 #### Windows
-1. 下載 `CalendarDiary-Setup-0.3.0-beta.exe`
+1. 下載 `CalendarDiary-Setup-0.3.1-beta.exe`
 2. 雙擊執行安裝程式
 3. 按照嚮導完成安裝
-
-#### macOS
-1. 下載 `CalendarDiary-0.3.0-beta-arm64.dmg`
-2. 打開 DMG 檔案
-3. 將應用拖入 Applications 資料夾
-4. 首次執行可能需要在「系統設定 > 隱私與安全性」中允許
-
-#### Linux
-```bash
-# AppImage 方式
-chmod +x CalendarDiary-0.3.0-beta-arm64.AppImage
-./CalendarDiary-0.3.0-beta-arm64.AppImage
-
-# Debian/Ubuntu 方式
-sudo dpkg -i calendar-diary_0.3.0-beta_amd64.deb
-```
 
 ## 📖 使用方法
 

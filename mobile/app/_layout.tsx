@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { AppState, Pressable, StyleSheet, Text, View } from 'react-native';
 import { Stack, type ErrorBoundaryProps } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
@@ -12,7 +12,17 @@ import { useSecurityStore } from '@/store/securityStore';
 import { useSyncStore } from '@/store/syncStore';
 import { colors, radius, spacing, typography } from '@/theme/tokens';
 
-void SplashScreen.preventAutoHideAsync();
+const STARTUP_TIMEOUT_MS = 8_000;
+
+void SplashScreen.preventAutoHideAsync().catch(() => undefined);
+
+const hideNativeSplash = () => {
+  try {
+    SplashScreen.hide();
+  } catch {
+    // 启动页可能已经被原生层关闭，此时无需阻塞应用初始化。
+  }
+};
 
 export function ErrorBoundary({ retry }: ErrorBoundaryProps) {
   return (
@@ -34,6 +44,7 @@ export function ErrorBoundary({ retry }: ErrorBoundaryProps) {
 }
 
 export default function RootLayout() {
+  const [startupComplete, setStartupComplete] = useState(false);
   const diaryHydrated = useDiaryStore((state) => state.hydrated);
   const hydrateDiary = useDiaryStore((state) => state.hydrate);
   const securityHydrated = useSecurityStore((state) => state.hydrated);
@@ -45,14 +56,32 @@ export default function RootLayout() {
   const syncIfDue = useSyncStore((state) => state.syncIfDue);
 
   useEffect(() => {
-    void hydrateDiary();
-    void hydrateSecurity();
-    void hydrateSync();
+    let active = true;
+    const finishStartup = () => {
+      if (!active) return;
+      setStartupComplete(true);
+      hideNativeSplash();
+    };
+    const timeout = setTimeout(finishStartup, STARTUP_TIMEOUT_MS);
+
+    void Promise.allSettled([
+      hydrateDiary(),
+      hydrateSecurity(),
+      hydrateSync(),
+    ]).finally(() => {
+      clearTimeout(timeout);
+      finishStartup();
+    });
+
+    return () => {
+      active = false;
+      clearTimeout(timeout);
+    };
   }, [hydrateDiary, hydrateSecurity, hydrateSync]);
 
   useEffect(() => {
     if (diaryHydrated && securityHydrated && syncHydrated) {
-      void SplashScreen.hideAsync();
+      hideNativeSplash();
       const diary = useDiaryStore.getState();
       void (async () => {
         await localBackupRepository.createIfDue({
@@ -75,7 +104,9 @@ export default function RootLayout() {
     return () => subscription.remove();
   }, [lock, syncIfDue]);
 
-  if (!diaryHydrated || !securityHydrated || !syncHydrated) return <View style={{ flex: 1, backgroundColor: colors.canvas }} />;
+  if (!startupComplete && (!diaryHydrated || !securityHydrated || !syncHydrated)) {
+    return <View style={{ flex: 1, backgroundColor: colors.canvas }} />;
+  }
   if (locked) return <LockScreen />;
 
   return (
