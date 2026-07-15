@@ -1,6 +1,6 @@
-# CalendarDiary Mobile
+# 日历日记移动端
 
-CalendarDiary 的 Android、iOS 与 Web 客户端，基于 Expo SDK 57、React Native 和 Expo Router。
+日历日记的 Android、iOS 与 Web 客户端，基于 Expo SDK 57、React Native 和 Expo Router。
 
 ## 当前能力
 

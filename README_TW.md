@@ -2,10 +2,10 @@
 
 [简体中文](README.md) | [English](README_EN.md) | **繁體中文** | [日本語](README_JA.md) | [한국어](README_KO.md) | [Русский](README_RU.md)
 
-# 📅 CalendarDiary - 日曆日記
+# 📅 日曆日記
 
 <p align="center">
-  <img src="logo.png" alt="CalendarDiary Logo" width="120" height="120">
+  <img src="logo.png" alt="日曆日記圖示" width="120" height="120">
 </p>
 
 **一款簡潔優雅的日曆日記應用，幫助你記錄每天的點滴生活**
@@ -22,7 +22,7 @@
 
 ## 📖 軟體介紹
 
-CalendarDiary 是一款跨平台的桌面日曆日記應用，採用現代化設計理念，為使用者提供簡潔直觀的記錄體驗。
+日曆日記是一款跨平台的日曆日記應用，採用現代化設計理念，為使用者提供簡潔直觀的記錄體驗。
 
 ### 軟體介面展示
 
@@ -60,7 +60,7 @@ CalendarDiary 是一款跨平台的桌面日曆日記應用，採用現代化設
 
 ## 📥 下載安裝
 
-### 最新版本：v0.3.1-beta
+### 最新版本：v0.3.2-beta
 
 前往 [Releases](https://github.com/xiaoxin744/calendar-diary/releases) 頁面下載適合你系統的安裝包：
 
@@ -75,12 +75,12 @@ CalendarDiary 是一款跨平台的桌面日曆日記應用，採用現代化設
 ### 安裝說明
 
 #### Android
-1. 下載 `CalendarDiary-Mobile-0.2.1-android.apk`
+1. 下載 `CalendarDiary-Mobile-0.2.2-android.apk`
 2. 在手機檔案管理器中開啟 APK；首次安裝時依系統提示允許此來源安裝應用程式
 3. 安裝後可直接離線使用；只有主動設定 WebDAV 時才會連線同步
 
 #### Windows
-1. 下載 `CalendarDiary-Setup-0.3.1-beta.exe`
+1. 下載 `CalendarDiary-Setup-0.3.2-beta.exe`
 2. 雙擊執行安裝程式
 3. 按照嚮導完成安裝
 

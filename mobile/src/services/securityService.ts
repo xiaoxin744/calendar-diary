@@ -26,7 +26,7 @@ export const securityService = {
   async authenticate(): Promise<boolean> {
     if (Platform.OS === 'web') return true;
     const result = await LocalAuthentication.authenticateAsync({
-      promptMessage: '解锁 CalendarDiary',
+      promptMessage: '解锁日历日记',
       cancelLabel: '取消',
       fallbackLabel: '使用设备密码',
       disableDeviceFallback: false,

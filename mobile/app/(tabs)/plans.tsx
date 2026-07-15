@@ -5,6 +5,7 @@ import { IconButton } from '@/components/IconButton';
 import { PageHeader } from '@/components/PageHeader';
 import { SaveStatus } from '@/components/SaveStatus';
 import { Screen } from '@/components/Screen';
+import { resolveMonthlyPlans } from '@/domain/monthlyPlans';
 import { useDiaryStore } from '@/store/diaryStore';
 import { colors, radius, spacing, typography } from '@/theme/tokens';
 import { monthTitle, shiftMonth, toMonthKey } from '@/utils/date';
@@ -12,7 +13,8 @@ import { monthTitle, shiftMonth, toMonthKey } from '@/utils/date';
 export default function PlansScreen() {
   const [month, setMonth] = useState(() => new Date());
   const monthKey = toMonthKey(month);
-  const plans = useDiaryStore((state) => state.monthlyPlans[monthKey] ?? ['', '', '']);
+  const storedPlans = useDiaryStore((state) => state.monthlyPlans[monthKey]);
+  const plans = resolveMonthlyPlans(storedPlans);
   const updatePlan = useDiaryStore((state) => state.updatePlan);
   const visiblePlanCount = Math.max(3, Math.min(16, plans.length));
 

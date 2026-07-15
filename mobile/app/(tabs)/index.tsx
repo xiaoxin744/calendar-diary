@@ -35,7 +35,7 @@ export default function CalendarScreen() {
 
   return (
     <Screen>
-      <PageHeader title="CalendarDiary" subtitle={format(new Date(), 'yyyy年M月d日')} right={<SaveStatus />} />
+      <PageHeader title="日历日记" subtitle={format(new Date(), 'yyyy年M月d日')} right={<SaveStatus />} />
 
       <View style={styles.monthBar}>
         <IconButton icon={ChevronLeft} label="上个月" onPress={() => changeMonth(-1)} />

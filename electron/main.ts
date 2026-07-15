@@ -5,7 +5,7 @@ const path = require('path');
 const fs = require('fs/promises');
 const { pathToFileURL } = require('url');
 
-// Set app name for proper data storage path
+// Keep the internal storage identity stable so a display-name change never hides existing diaries.
 app.setName('CalendarDiary');
 
 // 数据存储路径
@@ -82,6 +82,7 @@ function assertTrustedSender(event: IpcMainInvokeEvent | IpcMainEvent) {
 
 function createWindow() {
   mainWindow = new BrowserWindow({
+    title: '日历日记',
     width: 1200,
     height: 800,
     minWidth: 800,

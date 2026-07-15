@@ -2,10 +2,10 @@
 
 [简体中文](README.md) | [English](README_EN.md) | [繁體中文](README_TW.md) | **日本語** | [한국어](README_KO.md) | [Русский](README_RU.md)
 
-# 📅 CalendarDiary - カレンダー日記
+# 📅 日历日记 · カレンダー日記
 
 <p align="center">
-  <img src="logo.png" alt="CalendarDiary Logo" width="120" height="120">
+  <img src="logo.png" alt="日历日记 アプリアイコン" width="120" height="120">
 </p>
 
 **毎日の生活を記録するシンプルでエレガントなカレンダー日記アプリ**
@@ -22,7 +22,7 @@
 
 ## 📖 アプリ紹介
 
-CalendarDiary は、モダンなデザイン哲学を採用したクロスプラットフォームのデスクトップカレンダー日記アプリで、シンプルで直感的な記録体験を提供します。
+日历日记は、モダンなデザイン哲学を採用したクロスプラットフォームのカレンダー日記アプリで、シンプルで直感的な記録体験を提供します。
 
 ### スクリーンショット
 
@@ -60,7 +60,7 @@ CalendarDiary は、モダンなデザイン哲学を採用したクロスプラ
 
 ## 📥 インストール
 
-### 最新バージョン：v0.3.1-beta
+### 最新バージョン：v0.3.2-beta
 
 [Releases](https://github.com/xiaoxin744/calendar-diary/releases) ページから、お使いのシステム向けパッケージをダウンロードしてください：
 
@@ -75,12 +75,12 @@ CalendarDiary は、モダンなデザイン哲学を採用したクロスプラ
 ### インストール手順
 
 #### Android
-1. `CalendarDiary-Mobile-0.2.1-android.apk` をダウンロード
+1. `CalendarDiary-Mobile-0.2.2-android.apk` をダウンロード
 2. スマートフォンのファイルマネージャーで APK を開き、求められた場合はこの提供元からのインストールを許可
 3. インストール後はオフラインで利用でき、WebDAV を明示的に設定した場合のみ通信します
 
 #### Windows
-1. `CalendarDiary-Setup-0.3.1-beta.exe` をダウンロード
+1. `CalendarDiary-Setup-0.3.2-beta.exe` をダウンロード
 2. ダブルクリックしてインストーラーを実行
 3. ウィザードに従ってインストールを完了
 

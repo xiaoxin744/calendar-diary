@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "CalendarDiary",
+    "name": "日历日记",
     "description": "本地优先、简洁安全的跨平台日历日记。",
     "slug": "calendar-diary-mobile",
     "scheme": "calendardiary",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -12,21 +12,21 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.xiaoxin744.calendardiary",
-      "buildNumber": "3",
+      "buildNumber": "4",
       "config": {
         "usesNonExemptEncryption": false
       }
     },
     "android": {
       "package": "com.xiaoxin744.calendardiary",
-      "versionCode": 3,
+      "versionCode": 4,
       "blockedPermissions": [
         "android.permission.READ_EXTERNAL_STORAGE",
         "android.permission.WRITE_EXTERNAL_STORAGE"
       ],
       "adaptiveIcon": {
-        "backgroundColor": "#202A32",
-        "foregroundImage": "./assets/icon.png"
+        "backgroundColor": "#315B78",
+        "foregroundImage": "./assets/adaptive-icon.png"
       },
       "predictiveBackGestureEnabled": true
     },
@@ -41,13 +41,13 @@
         "expo-secure-store",
         {
           "configureAndroidBackup": true,
-          "faceIDPermission": "允许 CalendarDiary 使用 Face ID 解锁私人日记。"
+          "faceIDPermission": "允许日历日记使用 Face ID 解锁私人日记。"
         }
       ],
       [
         "expo-local-authentication",
         {
-          "faceIDPermission": "允许 CalendarDiary 使用 Face ID 解锁私人日记。"
+          "faceIDPermission": "允许日历日记使用 Face ID 解锁私人日记。"
         }
       ],
       [

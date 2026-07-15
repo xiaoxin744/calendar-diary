@@ -122,8 +122,8 @@ export default function SettingsScreen() {
         <View style={styles.brand}>
           <Image source={require('../../assets/icon.png')} style={styles.logo} />
           <View>
-            <Text style={styles.brandTitle}>CalendarDiary</Text>
-            <Text style={styles.brandVersion}>移动端 {Constants.expoConfig?.version ?? '0.2.0'}</Text>
+            <Text style={styles.brandTitle}>日历日记</Text>
+            <Text style={styles.brandVersion}>移动端 {Constants.expoConfig?.version ?? '0.2.2'}</Text>
           </View>
         </View>
 

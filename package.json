@@ -1,7 +1,7 @@
 {
   "name": "calendar-diary",
   "private": true,
-  "version": "0.3.1-beta",
+  "version": "0.3.2-beta",
   "description": "一款简洁优雅的日历日记应用",
   "author": {
     "name": "TrustDev",
@@ -68,7 +68,7 @@
   },
   "build": {
     "appId": "com.calendardiary.app",
-    "productName": "CalendarDiary",
+    "productName": "日历日记",
     "directories": {
       "output": "release",
       "buildResources": "build"
