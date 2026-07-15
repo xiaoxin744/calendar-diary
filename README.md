@@ -79,6 +79,12 @@ npm run start
 
 当前已支持月历、日记编辑、心情、月度计划、全文搜索、备份恢复和设备生物识别保护。详细说明见 [`mobile/README.md`](mobile/README.md)。
 
+<p align="center">
+  <img src="docs/images/mobile-calendar.png" alt="移动端月历" width="280">
+  &nbsp;&nbsp;
+  <img src="docs/images/mobile-editor.png" alt="移动端日记编辑" width="280">
+</p>
+
 ---
 
 ## 📥 桌面端下载安装
