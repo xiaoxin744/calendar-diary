@@ -4,6 +4,7 @@ import { format, getLunarFullDate } from '../utils/dateUtils';
 import { DayData, DayEvent, STICKERS } from '../types';
 import { X, Plus, Trash2, Save } from 'lucide-react';
 import { t } from '../utils/i18n';
+import { AlmanacPanel } from './AlmanacPanel';
 
 interface DayEditorProps {
   date: Date;
@@ -124,9 +125,10 @@ export const DayEditor: React.FC<DayEditorProps> = ({ date, initialData, onClose
         </div>
 
         {/* Content */}
-        <div className="p-4 overflow-y-auto flex-1">
+        <div className="p-4 overflow-y-auto flex-1 space-y-5">
+          <AlmanacPanel date={date} />
           {/* Events Section */}
-          <div className="mb-6">
+          <div>
             <div className="flex justify-between items-center mb-2">
                <label className="text-xs font-bold text-stone-500 uppercase">{t('todoEvents')}</label>
             </div>

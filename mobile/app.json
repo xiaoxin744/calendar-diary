@@ -4,7 +4,7 @@
     "description": "本地优先、简洁安全的跨平台日历日记。",
     "slug": "calendar-diary-mobile",
     "scheme": "calendardiary",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -12,14 +12,14 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.xiaoxin744.calendardiary",
-      "buildNumber": "4",
+      "buildNumber": "5",
       "config": {
         "usesNonExemptEncryption": false
       }
     },
     "android": {
       "package": "com.xiaoxin744.calendardiary",
-      "versionCode": 4,
+      "versionCode": 5,
       "blockedPermissions": [
         "android.permission.READ_EXTERNAL_STORAGE",
         "android.permission.WRITE_EXTERNAL_STORAGE"

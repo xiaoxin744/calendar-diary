@@ -6,6 +6,7 @@ import * as Crypto from 'expo-crypto';
 import * as Haptics from 'expo-haptics';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { EVENT_EMOJIS, MOODS, type DayEvent } from '@/domain/types';
+import { AlmanacPanel } from '@/components/AlmanacPanel';
 import { useDiaryStore } from '@/store/diaryStore';
 import { colors, radius, spacing, typography } from '@/theme/tokens';
 import { fromDateKey, fullDateTitle } from '@/utils/date';
@@ -51,6 +52,7 @@ export default function DayEditorScreen() {
         </View>
 
         <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
+          <AlmanacPanel date={date} />
           <Text style={styles.sectionLabel}>日记与待办</Text>
           {events.map((event, index) => (
             <View key={event.id} style={styles.entry}>

@@ -10,6 +10,7 @@ import { Screen } from '@/components/Screen';
 import { useDiaryStore } from '@/store/diaryStore';
 import { colors, radius, spacing, typography } from '@/theme/tokens';
 import { format, getCalendarDays, isSameDay, isSameMonth, monthTitle, shiftMonth, toDateKey, toMonthKey } from '@/utils/date';
+import { getLunarLabel } from '@/utils/lunar';
 
 const WEEK_DAYS = ['日', '一', '二', '三', '四', '五', '六'];
 
@@ -19,6 +20,10 @@ export default function CalendarScreen() {
   const [currentMonth, setCurrentMonth] = useState(() => new Date());
   const daysData = useDiaryStore((state) => state.days);
   const days = useMemo(() => getCalendarDays(currentMonth), [currentMonth]);
+  const lunarLabels = useMemo(
+    () => new Map(days.map((day) => [toDateKey(day), getLunarLabel(day)])),
+    [days],
+  );
   const cellWidth = (width - spacing.md * 2 - 6) / 7;
   const cellHeight = Math.max(50, Math.min(64, Math.round(cellWidth * 1.1)));
   const monthKey = toMonthKey(currentMonth);
@@ -69,11 +74,12 @@ export default function CalendarScreen() {
           const inMonth = isSameMonth(day, currentMonth);
           const today = isSameDay(day, new Date());
           const weekend = day.getDay() === 0 || day.getDay() === 6;
+          const lunarLabel = lunarLabels.get(dateKey) ?? '';
           return (
             <Pressable
               key={dateKey}
               accessibilityRole="button"
-              accessibilityLabel={`${format(day, 'M月d日')}${record ? `，${record.events.length}条记录` : ''}`}
+              accessibilityLabel={`${format(day, 'M月d日')}，农历${lunarLabel}${record ? `，${record.events.length}条记录` : ''}`}
               onPress={() => {
                 void Haptics.selectionAsync();
                 router.push({ pathname: '/day/[date]', params: { date: dateKey } });
@@ -97,6 +103,7 @@ export default function CalendarScreen() {
                 </Text>
                 {record?.stickers[0] ? <Text style={styles.mood}>{record.stickers[0]}</Text> : null}
               </View>
+              <Text numberOfLines={1} style={[styles.lunarText, !inMonth && styles.outsideText]}>{lunarLabel}</Text>
               {record?.events[0] ? <Text numberOfLines={1} style={styles.preview}>{record.events[0].summary || record.events[0].rawText}</Text> : null}
               {record && record.events.length > 0 ? <View style={styles.entryDot} /> : null}
             </Pressable>
@@ -133,7 +140,8 @@ const styles = StyleSheet.create({
   outsideText: { color: colors.inkSubtle },
   todayNumber: { color: colors.yellow },
   mood: { fontSize: 11 },
-  preview: { marginTop: 4, color: colors.inkMuted, fontSize: 8, lineHeight: 11 },
+  lunarText: { marginTop: 2, color: colors.inkMuted, fontSize: 9, lineHeight: 11 },
+  preview: { marginTop: 1, color: colors.inkSubtle, fontSize: 8, lineHeight: 10 },
   entryDot: { position: 'absolute', left: 5, bottom: 5, width: 4, height: 4, borderRadius: 2, backgroundColor: colors.blue },
   summary: { height: 48, paddingHorizontal: spacing.md, flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
   summaryLabel: { color: colors.inkMuted, fontSize: typography.label },

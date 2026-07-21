@@ -1,6 +1,6 @@
 {
   "name": "@calendar-diary/mobile",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "main": "expo-router/entry",
   "dependencies": {
     "@react-native-async-storage/async-storage": "2.2.0",
@@ -24,6 +24,7 @@
     "expo-task-manager": "~57.0.4",
     "js-base64": "^3.9.0",
     "lucide-react-native": "^0.554.0",
+    "lunar-javascript": "^1.7.7",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-native": "0.86.0",

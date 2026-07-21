@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { format } from '../utils/dateUtils';
 import { DayData } from '../types';
 import { X } from 'lucide-react';
+import { AlmanacPanel } from './AlmanacPanel';
 
 interface DayPreviewProps {
   date: Date;
@@ -44,7 +45,8 @@ export const DayPreview: React.FC<DayPreviewProps> = ({ date, data, onClose }) =
       </div>
 
       <div className="p-4 overflow-y-auto overflow-x-hidden flex-1">
-        <div className="space-y-3">
+        <AlmanacPanel date={date} />
+        <div className="mt-4 space-y-3">
           {events.length === 0 ? (
             <p className="text-xs text-stone-400">暂无内容</p>
           ) : (

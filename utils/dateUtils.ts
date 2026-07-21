@@ -16,6 +16,22 @@ import {
 } from 'date-fns';
 import { Solar } from 'lunar-javascript';
 
+export interface AlmanacInfo {
+  lunarDate: string;
+  yearName: string;
+  zodiac: string;
+  festival: string | null;
+  solarTerm: string | null;
+  yi: string[];
+  ji: string[];
+  clash: string;
+  sha: string;
+  dayOfficer: string;
+  mansion: string;
+  mansionLuck: string;
+  pengZu: string;
+}
+
 // 节假日定义
 interface Holiday {
   month: number;
@@ -195,6 +211,29 @@ export const getLunarFullDate = (date: Date): string => {
   const cnMonth = lunar.getMonthInChinese();
   const cnDay = lunar.getDayInChinese();
   return `${gzYear}年${cnMonth}月${cnDay}`;
+};
+
+export const getAlmanac = (date: Date): AlmanacInfo => {
+  const solar = Solar.fromYmd(date.getFullYear(), date.getMonth() + 1, date.getDate());
+  const lunar = solar.getLunar();
+  const festival = lunar.getFestivals()[0] || lunar.getOtherFestivals()[0] || null;
+  const solarTerm = lunar.getJieQi() || null;
+
+  return {
+    lunarDate: `${lunar.getYearInGanZhi()}年${lunar.getMonthInChinese()}月${lunar.getDayInChinese()}`,
+    yearName: `${lunar.getYearInGanZhi()}${lunar.getYearShengXiao()}年`,
+    zodiac: lunar.getYearShengXiao(),
+    festival,
+    solarTerm,
+    yi: lunar.getDayYi(),
+    ji: lunar.getDayJi(),
+    clash: lunar.getChongDesc(),
+    sha: lunar.getSha(),
+    dayOfficer: lunar.getZhiXing(),
+    mansion: lunar.getXiu(),
+    mansionLuck: lunar.getXiuLuck(),
+    pengZu: `${lunar.getPengZuGan()} ${lunar.getPengZuZhi()}`,
+  };
 };
 
 // 获取公历节假日
